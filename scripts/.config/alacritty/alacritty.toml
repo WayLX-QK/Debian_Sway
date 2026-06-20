@@ -1,0 +1,21 @@
+[font]
+size = 16
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Regular"
+
+[general]
+import = ["./catppuccin-macchiato.toml"]
+
+[window]
+dynamic_padding = true
+opacity = 0.98
+
+[window.dimensions]
+columns = 200
+lines = 3
+
+[window.padding]
+x = 5
+y = 5

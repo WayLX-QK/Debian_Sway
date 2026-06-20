@@ -1,0 +1,59 @@
+#            ____                       
+#  _ __ ___ | __ )  ___  ___  __ _ _ __ 
+# | '_ ` _ \|  _ \ / _ \/ __|/ _` | '__|
+# | | | | | | |_) |  __/\__ \ (_| | |   
+# |_| |_| |_|____/ \___||___/\__,_|_|   
+# ——————————————————————————————————————————————
+# ——————————————————————————————————————————————
+#
+
+### Lock and Idle Settings
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+
+# Set wallpaper
+#set $wallpaper /home/mbesar/.config/sway/wallpaper/sound.png
+set $wallpaper $HOME/.config/sway/wallpaper/sound.png
+
+# Your lock screen
+#set $lock_cmd "$HOME/.config/sway/scripts/lock"
+set $lock_cmd "swaymsg input '*' xkb_switch_layout 0; \
+  swaylock -f -i $wallpaper \
+  --indicator-radius 80 \
+  --indicator-thickness 10 \
+  --ring-color ffd75fff"
+
+# ——————————————————————————————————————————————
+# Lock screen
+# ——————————————————————————————————————————————
+# exec_always swayidle -w timeout 180 $lock_cmd
+
+exec swayidle -w \
+  timeout 180 $lock_cmd \
+  timeout 300 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep $lock_cmd
+
+# Lock the screen with Super+Alt+l
+# bindsym $mod+Alt+l exec $lock_cmd
+#bindsym --to-code Mod4+Mod1+l exec $lock_cmd
+
+# Lock the screen with Super+l
+bindsym --to-code Mod4+l exec $lock_cmd
+
+# ——————————————————————————————————————————————
+# Prevent Idle if there is full screen window
+# ——————————————————————————————————————————————
+	# Inhibit Idle if a window is fullscreen
+	for_window [class="^.*"] inhibit_idle fullscreen
+	for_window [app_id="^.*"] inhibit_idle fullscreen

@@ -1,0 +1,187 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "control-center-margin-bottom": 2,
+  "control-center-margin-left": 0,
+  "control-center-margin-right": 1,
+  "control-center-margin-top": 2,
+  "control-center-width": 380,
+  "fit-to-screen": true,
+  "hide-on-action": true,
+  "hide-on-clear": false,
+  "image-visibility": "when-available",
+  "keyboard-shortcuts": true,
+  "notification-body-image-height": 160,
+  "notification-body-image-width": 90,
+  "notification-icon-size": 48,
+  "notification-visibility": {
+    "example-name": {
+      "app-name": "Spotify",
+      "state": "muted",
+      "urgency": "Low"
+    }
+  },
+  "notification-window-width": 366,
+  "positionX": "right",
+  "positionY": "top",
+  "script-fail-notify": true,
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+  "timeout": 6,
+  "timeout-critical": 0,
+  "timeout-low": 4,
+  "transition-time": 100,
+  "widget-config": {
+    "backlight": {
+      "device": "intel_backlight",
+      "label": "",
+      "min": 10
+    },
+    "backlight#KB": {
+      "device": "asus::kbd_backlight",
+      "label": " ",
+      "subsystem": "leds"
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "label": " ",
+          "type": "toggle",
+          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "command": "nm-connection-editor",
+          "label": ""
+        },
+        {
+          "command": "blueman-manager",
+          "label": ""
+        },
+        {
+          "command": "firefox",
+          "label": ""
+        }
+      ]
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "label": {
+      "max-lines": 1,
+      "text": "Control Center"
+    },
+    "menubar": {
+      "menu#power-buttons": {
+        "actions": [
+          {
+            "command": "systemctl reboot",
+            "label": "   Reboot"
+          },
+          {
+            "command": "swaylock.sh",
+            "label": "   Lock"
+          },
+          {
+            "command": "loginctl terminate-session ${XDG_SESSION_ID-}",
+            "label": "   Logout"
+          },
+          {
+            "command": "systemctl poweroff",
+            "label": "   Shut down"
+          }
+        ],
+        "label": "",
+        "position": "right"
+      },
+      "menu#powermode-buttons": {
+        "actions": [
+          {
+            "command": "powerprofilesctl set performance",
+            "label": "Performance"
+          },
+          {
+            "command": "powerprofilesctl set balanced",
+            "label": "Balanced"
+          },
+          {
+            "command": "powerprofilesctl set power-saver",
+            "label": "Power-saver"
+          }
+        ],
+        "label": "",
+        "position": "right"
+      },
+      "menu#screencast-buttons": {
+        "actions": [
+          {
+            "command": "swaync-client -cp && sleep 1 && recording.sh toggle fullscreen",
+            "label": "   Entire screen"
+          },
+          {
+            "command": "swaync-client -cp && sleep 1 && recording.sh toggle region",
+            "label": "   Select a region"
+          },
+          {
+            "command": "swaync-client -cp && recording.sh stop",
+            "label": "   Stop"
+          },
+          {
+            "command": "$XDG_VIDEOS_DIR/Screencasts",
+            "label": "   Open screencast folder"
+          }
+        ],
+        "label": "",
+        "position": "left"
+      },
+      "menu#screenshot-buttons": {
+        "actions": [
+          {
+            "command": "swaync-client -cp && sleep 1 && hyprshot -m output",
+            "label": "   Entire screen"
+          },
+          {
+            "command": "swaync-client -cp && sleep 1 && hyprshot -m region",
+            "label": "   Select a region"
+          },
+          {
+            "command": "swaync-client -cp && rofi-screenshot",
+            "label": "   Open screenshot menu"
+          },
+          {
+            "command": "xdg-open $HYPRSHOT_DIR",
+            "label": "   Open screenshot folder"
+          }
+        ],
+        "label": "",
+        "position": "left"
+      }
+    },
+    "mpris": {
+      "image-radius": 6,
+      "image-size": 96
+    },
+    "title": {
+      "button-text": "Clear All",
+      "clear-all-button": true,
+      "text": "Notifications"
+    },
+    "volume": {
+      "label": ""
+    }
+  },
+  "widgets": [
+    "label",
+    "menubar",
+    "buttons-grid",
+    "volume",
+    "mpris",
+    "title",
+    "dnd",
+    "notifications"
+  ]
+}

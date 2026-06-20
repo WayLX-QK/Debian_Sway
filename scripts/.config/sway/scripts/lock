@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# ~/.config/sway/scripts/lock
+# Make sure this file is executable: chmod +x ~/.config/sway/lock.sh
+
+# restore layout (or whatever you need to run before locking)
+swaymsg input '*' xkb_switch_layout 0
+
+# lock (use exec so the script doesn't fork unnecessarily)
+exec swaylock -f -i "$HOME/.config/sway/wallpaper/sound.png" \
+  --indicator-radius 80 \
+  --indicator-thickness 10 \
+  --ring-color ffd75fff

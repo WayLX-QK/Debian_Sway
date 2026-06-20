@@ -1,0 +1,71 @@
+# ——————————————————————————————————————————————
+# Rofi
+# ——————————————————————————————————————————————
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+
+# Clipboard
+
+## Clipse
+for_window [app_id="clipse"] floating enable, move position center, resize set 80ppt 80ppt
+#for_window [app_id="^clipse$"] floating enable, move position center
+exec_always sh -c 'wl-paste --type text --watch clipse --wl-store >/dev/null 2>&1 &'
+bindsym $mod+C exec sh -c "alacritty --class clipse --title Clipse -e .local/bin/clipse"
+#for_window [app_id="^clipse$"] floating enable, move position center
+
+
+## Cliphist
+exec_always wl-paste --watch cliphist store &
+bindsym $mod+v exec sh -c "\
+  cliphist list | \
+  rofi -dmenu -i \
+    -theme-str 'listview {lines: 6; columns: 1;}' \
+    -theme-str 'window {width: 40%; height: 45%; border-radius: 15px;}' | \
+  cliphist decode | \
+  wl-copy"
+
+
+
+# Application Launcher (dmenu replacement)
+set $dmenu rofi \
+  -show drun \
+  -show-icons \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry MousePrimary \
+  -theme-str 'window {width: 45%; height: 40%; border-radius: 15px;}'
+
+# Start App Launcher
+bindsym $mod+r exec $dmenu
+
+# Run Launcher
+set $menu rofi \
+  -show run \
+  -hover-select \
+  -me-select-entry '' \
+  -me-accept-entry MousePrimary \
+  -theme-str 'window {width: 30%; height: 40%; border-radius: 15px;}'
+
+# Start Command launcher
+bindsym $mod+Shift+r exec $menu
+
+# Power Menu
+set $powerMenu rofi \
+  -show power-menu \
+  -modi power-menu:~/.config/rofi/scripts/power-menu \
+  -theme-str 'window {width: 17%; height: 30%; border-radius: 15px;}'
+
+bindsym $mod+Shift+q exec $powerMenu
+
+# Emoji Menu
+set $emoji rofi \
+  -show emoji \
+  -i \
+  -theme-str 'listview {lines: 6; columns: 1;}' \
+  -theme-str 'window {width: 40%; height: 45%; border-radius: 15px;}'
+
+#bindsym $mod+Shift+e exec $emoji

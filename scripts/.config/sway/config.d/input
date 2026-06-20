@@ -1,0 +1,30 @@
+# ——————————————————————————————————————————————
+# Setup Input
+# ——————————————————————————————————————————————
+
+# ——————————————————————————————————————————————
+# Keyboard layouts: English (US) + Arabic
+# ——————————————————————————————————————————————
+
+input * {
+    # two layouts, comma-separated: us (English), ara (Arabic)
+    xkb_layout us,ara
+
+    # Optional: use the standard 105-key PC layout
+    xkb_model pc105
+
+    # Pick your favorite toggle combo, e.g. Alt+Shift
+    # xkb_options grp:alt_shift_toggle
+
+    # Or Super+Space:
+    xkb_options grp:switch,grp:win_space_toggle
+}
+
+
+# ——————————————————————————————————————————————
+# Enable Numlock
+# ——————————————————————————————————————————————
+
+input type:keyboard {
+    xkb_numlock enabled
+}

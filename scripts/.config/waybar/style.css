@@ -1,0 +1,331 @@
+/* Import GTK theme colors */
+@define-color base_color @theme_base_color;
+@define-color text_color @theme_text_color;
+@define-color bg_color @theme_bg_color;
+@define-color fg_color @theme_fg_color;
+@define-color selected_bg_color @theme_selected_bg_color;
+@define-color selected_fg_color @theme_selected_fg_color;
+@define-color unfocused_selected_bg_color @theme_unfocused_selected_bg_color;
+@define-color unfocused_selected_fg_color @theme_unfocused_selected_fg_color;
+@define-color button_bg_color @theme_button_bg_color;
+@define-color button_fg_color @theme_button_fg_color;
+@define-color warning_color @warning_color;
+@define-color error_color @error_color;
+@define-color success_color @success_color;
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo";
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: alpha(@bg_color, 0.80);
+    color: @fg_color;
+    border-radius: 8px;
+    border: 1px solid alpha(@selected_bg_color, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+tooltip {
+    background: @base_color;
+    color: @text_color;
+    border-radius: 6px;
+    border: 1px solid alpha(@selected_bg_color, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Workspaces */
+#workspaces {
+    background: alpha(@button_bg_color, 0.7);
+    margin: 1px;
+    padding: 0 1px;
+    border-radius: 6px;
+}
+
+#workspaces button {
+    padding: 1px 2px;
+    margin: 1px;
+    color: @button_fg_color;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background: alpha(@selected_bg_color, 0.3);
+    color: @selected_fg_color;
+}
+
+#workspaces button.focused {
+    background: @selected_bg_color;
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#workspaces button.urgent {
+    background: @error_color;
+    color: @base_color;
+    animation: blink 0.5s linear infinite alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: alpha(@error_color, 0.7);
+    }
+}
+
+/* Mode */
+#mode {
+    background: @warning_color;
+    color: @base_color;
+    padding: 0 6px;
+    margin: 2px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+/* Window title */
+#window {
+    color: alpha(@fg_color, 0.8);
+    font-weight: normal;
+    margin: 2px 4px;
+}
+
+/* Common module styling */
+#mode,
+#custom-power,
+#custom-notification,
+#custom-apps,
+#language,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#network,
+#pulseaudio,
+#idle_inhibitor,
+#tray {
+    padding: 0 6px;
+    margin: 2px 1px;
+    color: @fg_color;
+    background: alpha(@button_bg_color, 0.5);
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+#mode:hover,
+#custom-power:hover,
+#custom-notification:hover,
+#custom-apps:hover,
+/* #language:hover, */
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#backlight:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover {
+    background: alpha(@selected_bg_color, 0.6);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Language */
+#language {
+    font-size: 16px;
+    padding: 0 6px;
+    margin: 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+#language {
+    background: alpha(@selected_bg_color, 0.7);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#language.ar {
+    background: alpha(@selected_bg_color, 0.7);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#language.en {
+    background: alpha(@selected_bg_color, 0.7);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Clock */
+#clock {
+    font-weight: bold;
+    color: @selected_fg_color;
+    background: alpha(@selected_bg_color, 0.7);
+}
+
+/* CPU */
+#cpu {
+    color: @success_color;
+}
+
+#cpu.warning {
+    color: @warning_color;
+}
+
+#cpu.critical {
+    color: @error_color;
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+/* Memory */
+#memory {
+    color: @fg_color;
+    /* color: alpha(@selected_fg_color, 0.9); */
+}
+
+#memory.warning {
+    color: @warning_color;
+}
+
+#memory.critical {
+    color: @error_color;
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+/* Temperature */
+#temperature {
+    color: @fg_color;
+}
+
+#temperature.critical {
+    color: @error_color;
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+/* Battery */
+#battery {
+    color: @success_color;
+}
+
+#battery.charging {
+    color: @success_color;
+}
+
+#battery.warning:not(.charging) {
+    color: @warning_color;
+}
+
+#battery.critical:not(.charging) {
+    color: @error_color;
+    animation: pulse 1s ease-in-out infinite alternate;
+}
+
+/* Network */
+#network {
+    color: @fg_color;
+}
+
+#network.disconnected {
+    color: @error_color;
+}
+
+/* PulseAudio */
+#pulseaudio {
+    color: @fg_color;
+}
+
+#pulseaudio.muted {
+    color: alpha(@fg_color, 0.5);
+}
+
+/* Idle inhibitor */
+#idle_inhibitor {
+    color: @fg_color;
+}
+
+
+#idle_inhibitor.deactivated {
+    color: @theme_text_color;
+}
+
+
+#idle_inhibitor.activated {
+    background: alpha(@selected_bg_color, 0.8);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Tray */
+#tray {
+    background: alpha(@button_bg_color, 0.3);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: alpha(@error_color, 0.3);
+}
+
+/* Backlight */
+#backlight {
+    color: @fg_color;
+}
+
+/* === Keyboard state === */
+
+/* Default look for keys */
+#keyboard-state label {
+    font-size: 16px;
+    padding: 0 6px;
+    margin: 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+
+/* NumLock */
+#keyboard-state label.numlock:hover,
+#keyboard-state label.numlock.locked {
+    background: alpha(@selected_bg_color, 0.6);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* CapsLock */
+#keyboard-state label.capslock:hover,
+#keyboard-state label.capslock.locked {
+    background: alpha(@selected_bg_color, 0.9);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ScrollLock */
+#keyboard-state label.scrolllock:hover,
+#keyboard-state label.scrolllock.locked {
+    background: alpha(@selected_bg_color, 0.7);
+    color: @selected_fg_color;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Pulse animation for critical states */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
