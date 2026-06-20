@@ -22,7 +22,7 @@ SCRIPTS_DIR="$SCRIPT_DIR/scripts"
 SCRIPTS=(
     "swayInstall.sh|Install base system packages and tools|Y"
     "swayConfig.sh|Configure Sway window manager and related settings|Y"
-    "installFirefox.sh|Install Firefox|Y"
+    "installBrowser.sh|Install Browser|Y"
     "installFonts.sh|Install system fonts|Y"
     "updateConfig.sh|Copy and update .config|Y"
     "bashrc.sh|Update bashrc|Y"

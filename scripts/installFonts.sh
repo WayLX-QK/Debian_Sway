@@ -19,7 +19,7 @@ error()   { echo -e "${RED}${BOLD}✖${RESET} $1"; }
 # Step 1: Install Noto Fonts
 info "Installing Font Awesome and Noto fonts (English + Arabic)..."
 sudo apt update
-sudo apt install -y fonts-font-awesome fonts-noto-core fonts-noto-unhinted curl
+sudo apt install -y fonts-font-awesome fonts-noto-core fonts-noto-unhinted fonts-noto-color-emoji curl
 success "Noto fonts installed."
 
 # Step 2: Create fontconfig directory
@@ -75,17 +75,7 @@ cat > "$FONTCONF" <<'EOF'
 EOF
 success "fonts.conf written to $FONTCONF"
 
-# Step 4: Install JetBrainsMono Nerd Font
-info "Installing JetBrainsMono Nerd Font..."
-mkdir -p ~/.local/share/fonts
-pushd ~/.local/share/fonts > /dev/null
-curl -sLO https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
-bash -c 'mkdir -p "${1%.tar.xz}" && tar -xf "$1" -C "${1%.tar.xz}"' _ JetBrainsMono.tar.xz
-rm JetBrainsMono.tar.xz
-popd > /dev/null
-success "JetBrainsMono Nerd Font installed."
-
-# Step 5: Refresh font cache
+# Step 4: Refresh font cache
 info "Refreshing font cache..."
 fc-cache -fv > /dev/null
 success "Font cache updated."

@@ -26,7 +26,7 @@ info "Installing JetBrainsMono Nerd Font..."
 mkdir -p ~/.local/share/fonts
 pushd ~/.local/share/fonts > /dev/null
 
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz
+curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.tar.xz
 bash -c 'mkdir "${1%.tar.xz}" && tar -xf "$1" -C "${1%.tar.xz}"' _ JetBrainsMono.tar.xz
 rm JetBrainsMono.tar.xz
 fc-cache -fv
@@ -37,18 +37,18 @@ success "Nerd font installed!"
 #==================#
 # Starship Prompt
 #==================#
-info "Installing Starship prompt..."
-curl -sS https://starship.rs/install.sh | sh
-echo 'eval "$(starship init bash)"' >> ~/.bashrc
-success "Starship installed!"
+# info "Installing Starship prompt..."
+# curl -sS https://starship.rs/install.sh | sh
+# echo 'eval "$(starship init bash)"' >> ~/.bashrc
+# success "Starship installed!"
 
 #==================#
 # fzf
 #==================#
-info "Installing fzf..."
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
-success "fzf installed!"
+# info "Installing fzf..."
+# git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# ~/.fzf/install --all
+# success "fzf installed!"
 
 #==================#
 # Sway Config
