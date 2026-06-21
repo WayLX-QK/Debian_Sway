@@ -27,7 +27,7 @@ read -rp "Accent number: " AN
 ACCENT="${ACCENTS[$((AN-1))]}"
 
 # Step 3: download and extract
-ROOT_URL="https://github.com/catppuccin/gtk/releases/download/v1.0.3"
+ROOT_URL="https://ghproxy.cxkpro.top/https://github.com/catppuccin/gtk/releases/download/v1.0.3"
 ZIP_NAME="catppuccin-${FLAVOR}-${ACCENT}-standard+default.zip"
 URL="${ROOT_URL}/${ZIP_NAME}"
 

@@ -26,7 +26,7 @@ info "Installing JetBrainsMono Nerd Font..."
 mkdir -p ~/.local/share/fonts
 pushd ~/.local/share/fonts > /dev/null
 
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.tar.xz
+curl -OL https://ghproxy.cxkpro.top/https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.tar.xz
 bash -c 'mkdir "${1%.tar.xz}" && tar -xf "$1" -C "${1%.tar.xz}"' _ JetBrainsMono.tar.xz
 rm JetBrainsMono.tar.xz
 fc-cache -fv
