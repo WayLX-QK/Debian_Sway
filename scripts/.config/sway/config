@@ -94,7 +94,7 @@ include /etc/sway/config-vars.d/*
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+t exec $term
+    bindsym $mod+Return exec $term
 
     # Start a file manager
     bindsym $mod+f exec $fileManager
@@ -103,7 +103,7 @@ include /etc/sway/config-vars.d/*
     #bindsym $mod+w exec $webBrowser
 
     # Kill focused window
-    bindsym $mod+q kill
+    bindsym $mod+Shift+q kill
 
     # Restart waybar
     bindsym $mod+Shift+w exec 'pkill -x waybar; waybar'
