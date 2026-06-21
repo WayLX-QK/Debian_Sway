@@ -14,7 +14,7 @@ set $mod Mod4
 for_window [app_id="clipse"] floating enable, move position center, resize set 80ppt 80ppt
 #for_window [app_id="^clipse$"] floating enable, move position center
 exec_always sh -c 'wl-paste --type text --watch clipse --wl-store >/dev/null 2>&1 &'
-bindsym $mod+C exec sh -c "alacritty --class clipse --title Clipse -e .local/bin/clipse"
+bindsym $mod+C exec sh -c "foot --class clipse --title Clipse -e .local/bin/clipse"
 #for_window [app_id="^clipse$"] floating enable, move position center
 
 

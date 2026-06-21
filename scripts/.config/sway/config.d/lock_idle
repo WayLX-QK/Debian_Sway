@@ -1,27 +1,12 @@
-#            ____                       
-#  _ __ ___ | __ )  ___  ___  __ _ _ __ 
-# | '_ ` _ \|  _ \ / _ \/ __|/ _` | '__|
-# | | | | | | |_) |  __/\__ \ (_| | |   
-# |_| |_| |_|____/ \___||___/\__,_|_|   
-# ——————————————————————————————————————————————
-# ——————————————————————————————————————————————
-#
-
 ### Lock and Idle Settings
-#
 # Example configuration:
-#
 # exec swayidle -w \
 #          timeout 300 'swaylock -f -c 000000' \
 #          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
 #          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 
-# Set wallpaper
+# Set Wallpaper
 #set $wallpaper /home/mbesar/.config/sway/wallpaper/sound.png
 set $wallpaper $HOME/.config/sway/wallpaper/sound.png
 

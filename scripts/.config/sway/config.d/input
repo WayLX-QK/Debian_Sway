@@ -8,7 +8,7 @@
 
 input * {
     # two layouts, comma-separated: us (English), ara (Arabic)
-    xkb_layout us,ara
+    xkb_layout us
 
     # Optional: use the standard 105-key PC layout
     xkb_model pc105
