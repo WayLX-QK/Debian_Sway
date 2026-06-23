@@ -11,7 +11,7 @@ input * {
     xkb_layout us
 
     # Optional: use the standard 105-key PC layout
-    xkb_model pc105
+    # xkb_model pc105
 
     # Pick your favorite toggle combo, e.g. Alt+Shift
     # xkb_options grp:alt_shift_toggle
@@ -25,6 +25,6 @@ input * {
 # Enable Numlock
 # ——————————————————————————————————————————————
 
-input type:keyboard {
-    xkb_numlock enabled
-}
+# input type:keyboard {
+#     xkb_numlock enabled
+# }
