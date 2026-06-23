@@ -1,0 +1,41 @@
+# ——————————————————————————————————————————————
+# Enable touchpad tabs
+# ——————————————————————————————————————————————
+
+input type:touchpad {
+
+    # Tap-to-click
+    tap enabled
+
+    # Optional: natural scroll (like macOS)
+    #natural_scroll enabled
+
+    # Enable two-finger scrolling
+    scroll_method two_finger
+
+    # Optional: pointer acceleration
+    #pointer_accel 1
+    #accel_profile flat
+    accel_profile adaptive
+}
+
+# ——————————————————————————————————————————————
+# Enable touchpad gesture
+# ——————————————————————————————————————————————
+
+    # Allow switching between workspaces with   left and right swipes
+        bindgesture swipe:right workspace prev
+        bindgesture swipe:left workspace next
+        # 3-finger swipe to navigate workspaces
+        #bindgesture swipe:3:left workspace next
+        #bindgesture swipe:3:right workspace prev
+    
+    # Allow container movements by pinching them
+        bindgesture pinch:inward+up move up
+        bindgesture pinch:inward+down move down
+        bindgesture pinch:inward+left move left
+        bindgesture pinch:inward+right move right
+
+    # Zoom example (if your app supports it)
+        bindgesture pinch:outward exec firefox --zoom-in
+        bindgesture pinch:inward exec firefox --zoom-out

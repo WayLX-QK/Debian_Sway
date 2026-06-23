@@ -1,0 +1,35 @@
+# ——————————————————————————————————————————————
+# Theme
+# ——————————————————————————————————————————————
+
+include colors
+
+## Appearance & Fonts
+font pango:JetBrainsMono Nerd Font Propo 14
+
+
+## Gaps
+gaps inner 4
+gaps outer 2
+#smart_gaps on
+#hide_edge_borders smart_no_gaps
+
+## Borders
+#default_border normal 2
+default_border pixel 2
+#titlebar_border_thickness 2
+
+## Mouse focus behavior
+focus_follows_mouse no
+
+## Catppuccin Macchiato Colors
+# Client                Border  Background Text             Indicator Child_Border
+client.focused          $accent $accent    $title-on-accent $accent   $accent
+client.unfocused        $bg-alt $bg-alt    $fg-inactive     $bg-alt   $bg-alt
+client.focused_inactive $bg     $bg        $fg-inactive     $bg       $bg
+client.urgent           $urgent $urgent    $fg              $urgent   $urgent
+client.placeholder      $bg     $bg        $fg-inactive     $bg       $fg-inactive
+client.background       $bg
+
+## Workspace behavior
+smart_borders no

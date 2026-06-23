@@ -1,0 +1,33 @@
+# swayidle + swaylock configuration
+# Sourced from sway config: include /path/to/sway-idle-lock.conf
+
+# --- Wallpaper (used by swaylock) ---
+set $wallpaper $HOME/.config/wallpapers/sound.png
+
+# --- Lock command ---
+set $lock_cmd \
+  " \
+  swaymsg input '*' xkb_switch_layout 0; \
+  swaylock -f -i $wallpaper \
+    --indicator-radius 80 \
+    --indicator-thickness 10 \
+    --ring-color ffd75fff \
+  "
+
+# --- Idle management ---
+# LT = lock timeout (default 300s/5min)
+# ST = screen-off after lock (default 60s)
+exec LT="$lock_timeout" ST="$screen_timeout" LT=${LT:-30} ST=${ST:-60} && \
+    swayidle -w \
+        timeout $LT $lock_cmd \
+        timeout $((LT + ST)) 'swaymsg "output * power off"' \
+		resume 'swaymsg "output * power on"'  \
+        timeout $ST 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power off"' \
+		resume 'pgrep -xu "$USER" swaylock >/dev/null && swaymsg "output * power on"'  \
+        before-sleep $lock_cmd \
+        lock $lock_cmd \
+        unlock 'pkill -xu "$USER" -SIGUSR1 swaylock'
+
+# --- Manual lock keybind ---
+bindsym --to-code Mod4+l exec $lock_cmd
+

@@ -1,0 +1,5 @@
+sway|.config/sway
+nvim|.config/nvim
+foot|.config/foot
+rofi|.config/rofi
+wallpapers|.config/wallpapers
