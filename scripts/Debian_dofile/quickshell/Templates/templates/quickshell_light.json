@@ -1,0 +1,21 @@
+{
+  "backgroundPrimary": "#f5f5f5",
+  "backgroundSecondary": "#e9e9e9",
+  "backgroundTertiary": "#dedede",
+  "surface": "#ffffff",
+  "surfaceVariant": "#f0f0f0",
+  "textPrimary": "#242424",
+  "textSecondary": "#555555",
+  "textDisabled": "#999999",
+  "accentPrimary": "{{ color4 | lighten(0.1) | saturate(0.3) }}",
+  "accentSecondary": "{{ color4 | lighten(0.25) | saturate(0.3) }}",
+  "accentTertiary": "{{ color4 | darken(0.15) | saturate(0.3) }}",
+  "error": "{{ color5 | lighten(0.1) }}",
+  "warning": "{{ color5 | lighten(0.3) }}",
+  "highlight": "{{ color4 | lighten(0.45) }}",
+  "rippleEffect": "{{ color4 | lighten(0.2) }}",
+  "onAccent": "#ffffff",
+  "outline": "{{ background | lighten(0.75) }}",
+  "shadow": "{{ foreground | darken(0.80) }}",
+  "overlay": "{{ background | lighten(0.10) }}"
+}

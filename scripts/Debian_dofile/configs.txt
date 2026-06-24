@@ -1,5 +1,6 @@
 sway|.config/sway
 nvim|.config/nvim
 foot|.config/foot
+quickshell|.config/quickshell
 rofi|.config/rofi
 wallpapers|.config/wallpapers
